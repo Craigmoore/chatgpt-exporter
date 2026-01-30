@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT Exporter</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>ChatGPT Exporter</h1>
+      <p class="subtitle">Export conversations to Markdown</p>
+    </header>
+
+    <main>
+      <!-- Status Section -->
+      <section class="status-section">
+        <div id="status" class="status">
+          <span class="status-dot inactive"></span>
+          <span id="status-text">Checking status...</span>
+        </div>
+      </section>
+
+      <!-- Export Actions -->
+      <section class="actions">
+        <button id="export-current" class="btn btn-primary">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Export Current
+        </button>
+
+        <button id="export-all" class="btn btn-secondary">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Export All
+        </button>
+      </section>
+
+      <!-- Progress Section -->
+      <section id="progress-section" class="progress-section hidden">
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <p id="progress-text" class="progress-text">Exporting...</p>
+      </section>
+
+      <!-- Auto-sync Toggle -->
+      <section class="auto-sync">
+        <label class="toggle-label">
+          <span>Auto-sync</span>
+          <span class="toggle">
+            <input type="checkbox" id="auto-sync-toggle">
+            <span class="slider"></span>
+          </span>
+        </label>
+        <p class="help-text">Automatically export when new messages are added</p>
+      </section>
+
+      <!-- Stats Section -->
+      <section class="stats">
+        <div class="stat">
+          <span class="stat-value" id="exported-count">0</span>
+          <span class="stat-label">Exported</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="sidebar-count">-</span>
+          <span class="stat-label">In sidebar</span>
+        </div>
+      </section>
+      <section class="stats-actions">
+        <button id="clear-tracking" class="btn btn-link">Clear tracking</button>
+      </section>
+    </main>
+
+    <footer>
+      <p id="message" class="message"></p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
